@@ -5,7 +5,7 @@ const params = {
   }
 };
 
-const URL = 'http://localhost:3000/api';
+const URL = 'https://stormy-brook-79548.herokuapp.com/api';
 
 function getNews(subject) {
   return fetch(`${URL}/${subject}`, params)
@@ -24,6 +24,6 @@ function getNewsById(subject, id) {
 }
 
 export default {
-  getNews
+  getNews, getNewsById
 
 };
