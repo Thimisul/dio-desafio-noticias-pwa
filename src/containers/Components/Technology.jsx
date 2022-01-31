@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
 
-import { createMarkup } from '../../../utils'
+import { createMarkup } from '../../utils'
 
 function Technology({ values }) {
   const history = useHistory();

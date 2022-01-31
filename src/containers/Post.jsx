@@ -1,9 +1,9 @@
 import React, { memo, useEffect, useState, useCallback } from 'react';
 import { useHistory, useParams, Link } from 'react-router-dom';
 import { Row, Col } from 'antd';
-import Api from '../../api';
-import Actions from '../Actions'
-import { createMarkup } from '../../utils'
+import * as Api from '../api';
+import Actions from './Components/Actions'
+import { createMarkup } from '../utils'
 //import 'styles.css';
 
 function Post() {
@@ -13,7 +13,7 @@ function Post() {
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
-  const renderImg = ({ image, description }) => <img src={image.url} ald={description} width="75%" />
+  const renderImg = ({ image, description }) => <img alt={image.url} src={image.url} ald={description} width="75%" />
 
   const handleNews = useCallback((data) => {
     setNews(data[0]?.value)

@@ -1,6 +1,6 @@
 import React, { memo, useEffect, useState } from 'react';
 import { Row, Col } from 'antd';
-import Api from '../../api'
+import * as Api from '../api'
 
 import Economy from './Components/Economy';
 import Technology from './Components/Technology';

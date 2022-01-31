@@ -3,33 +3,31 @@ import PropTypes from 'prop-types';
 import { Row, Col } from 'antd';
 import { useHistory } from 'react-router-dom';
 
-import { createMarkup } from '../../../utils'
+import { createMarkup } from '../../utils'
 
-function World({ values }) {
+function Economy({ values }) {
   const history = useHistory();
 
   const renderImg = ({ image, description }) =>
     <img src={image.url} alt={description} width="100%" />
 
+  const renderDescription = (description) =>
+    <p dangerouslySetInnerHTML={createMarkup(description)} />
+
+
   const openPost = (id) => {
-    history.push(`world/${id}`)
+    history.push(`economy/${id}`)
   }
 
   const renderPost = (post, index) => {
-
-    const { title, image, description, id } = post;
-    const isFirst = index === 0;
-    const spanValue = isFirst ? 24 : 12;
-
+    const { title, image, description, id } = post
     return (
-      <Col span={spanValue} key={`world-${index}`}>
+      <Col span={24} md={12} key={`post-${index}`}>
         <article onClick={() => openPost(id)}>
           <p>
             <strong dangerouslySetInnerHTML={createMarkup(title)} />
           </p>
-          <p dangerouslySetInnerHTML={createMarkup(description)} />
-          {isFirst && renderImg({ image, description })}
-          {console.log(isFirst)}
+          {image?.url ? renderImg({ image, description }) : renderDescription(description)}
         </article>
       </Col>
     )
@@ -43,13 +41,13 @@ function World({ values }) {
 
 }
 
-World.defaultProps = {
+Economy.defaultProps = {
   values: []
 }
 
-World.propTypes = {
+Economy.propTypes = {
   values: PropTypes.array.isRequired
 }
 
 
-export default memo(World);
+export default memo(Economy);

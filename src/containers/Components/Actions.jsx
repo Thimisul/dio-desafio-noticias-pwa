@@ -27,7 +27,7 @@ function Actions({ post, subject }) {
 
     const icon = navigatorHasShare ? <AiOutlineShareAlt /> : <AiOutlineCopy />
 
-    return <h1 onClick={action}> {icon}</h1>
+    return <h1 className="share-icon" onClick={action}> {icon}</h1>
   }
 
   return (

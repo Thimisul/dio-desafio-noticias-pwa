@@ -23,7 +23,4 @@ function getNewsById(subject, id) {
     })
 }
 
-export default {
-  getNews, getNewsById
-
-};
+export { getNews, getNewsById };
